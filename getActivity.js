@@ -13,12 +13,12 @@ async function getActivity(username) {
 
     const json = await response.json();
     const recentActivity = json.slice(-10);
-    console.log(recentActivity.length);
+    console.log(`${username} recent activity:`);
 
     recentActivity.forEach((activity) => {
       let action;
       const eventType = activity.type;
-      //   console.log(eventType);
+
       switch (eventType) {
         case "CreateEvent":
           action = `- Created a ${activity.payload.ref_type} in ${activity.repo.name}`;
